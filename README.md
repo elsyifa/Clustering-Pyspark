@@ -1,13 +1,13 @@
 # Clustering-Pyspark
 This is a repository of clustering using pyspark
 
-I tried to make a template of clustering machine learning using pyspark. Generally, the steps of clustering are same with the steps of classification and regression from load data, data cleansing and making a prediction. But the differences are the libraries, models and data that are used. I used K-Mean to create clustering. 
+I tried to make a template of clustering machine learning using pyspark. Generally, the steps of clustering are same with the steps of classification and regression from load data, data cleansing and making a prediction. But the differences are the libraries, models and data that are used. I used K-Mean to create cluster. 
 
 I use the same function as the function used in regression and classfication for data cleansing and data importing. 
 
 To test my template, I use Mall customers dataset, this data represent customers income, age, sex and spending score in a Mall. From that dataset I will make segmentation of those customers.
 
-In general, the steps of regression machine learning are:
+In general, the steps of clustering machine learning are:
 
 * Load Libraries
 
@@ -30,13 +30,13 @@ In general, the steps of regression machine learning are:
   
 * Define categorical and numerical variables
 
-  In this step, I tried to split the variables based on it's data types. If data types of variables is string will be saved in list called cat_cols and if data types of variables is integer or double will be saved in list called num_cols. This split applied on data train and data test. This step applied to make easier in the following step so I don't need to define categorical and numerical variables manually.
+  In this step, I tried to split the variables based on it's data types. If data types of variables is string will be saved in list called **cat_cols** and if data types of variables is integer or double will be saved in list called **num_cols**. This step applied to make easier in the following step so I don't need to define categorical and numerical variables manually.
   ![alt text](https://github.com/elsyifa/Clustering-Pyspark/blob/master/Images/define_categorical_nummerical_variables.png)
   
 
 * Check Missing Values
   
-  Sometimes the data received is not clean. So, we need to check whether there are missing values or not. Output from this step is the name of columns which have missing values and the number of missing values. To check missing values, actually I created two method:
+  Sometimes the data are received is not clean. So, we need to check whether there are missing values or not. Output from this step is the name of columns which have missing values and the number of missing values. To check missing values, actually I created two method:
 
     - Using pandas dataframe,
     - Using pyspark dataframe. But the prefer method is method using pyspark dataframe so if dataset is too large we can still calculate / check missing values.
@@ -78,7 +78,7 @@ In general, the steps of regression machine learning are:
   
 * Modelling using K-Mean
   
-  Before modelling process, I just select 3 variables numerical from all data because I want make 3D visualization from the resulting of clustering. Because we work in spark environment so vector assemble still needed to be applied in this data.
+  Before modelling process, I just select 3 variables numerical from all data so the cluster can be visualized in 3D. Because we work in spark environment so vector assemble still needed to be applied in this data.
   Because K-Mean need define the value of K and to check the best value of K, I optimize of k, group fraction of the data for different k and look for an "elbow" in the cost function. Then, we plot the "elbow" and choose K with little gain.
   ![alt text](https://github.com/elsyifa/Clustering-Pyspark/blob/master/Images/modelling.png)
   ![alt text](https://github.com/elsyifa/Clustering-Pyspark/blob/master/Images/modelling2.png)
