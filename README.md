@@ -81,7 +81,8 @@ In general, the steps of clustering machine learning are:
 * Modelling using K-Mean
   
   Before modelling process, I just select 3 variables numerical from all data so the cluster can be visualized in 3D. Because we work in spark environment so vector assemble still needed to be applied in this data.
-  Because K-Mean need define the value of K and to check the best value of K, I optimize of k, group fraction of the data for different k and look for an "elbow" in the cost function. Then, we plot the "elbow" and choose K with little gain.
+  Because K-Mean need define the value of K and to check the best value of K, I optimize of k, group fraction of the data for different k and look for an "elbow" in the cost function. Then, we plot the "elbow" and choose K with little gain. Some function refer to https://rsandstroem.github.io/sparkkmeans.html
+  
   ![alt text](https://github.com/elsyifa/Clustering-Pyspark/blob/master/Images/modelling.png)
   ![alt text](https://github.com/elsyifa/Clustering-Pyspark/blob/master/Images/modelling2.png)
   ![alt text](https://github.com/elsyifa/Clustering-Pyspark/blob/master/Images/modelling3.png)
