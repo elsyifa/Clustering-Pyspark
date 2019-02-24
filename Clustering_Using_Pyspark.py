@@ -265,7 +265,7 @@ for x in num_cols:
 
 # Modelling K-Mean
 # drop Genre from dataframe, we just used numerical variable for clustering
-df_final2=df.drop('Genre')
+df_final2=df.drop(*cat_cols)
 df_final2.show(4)
 
 #define columns for vector assembler processing
@@ -303,7 +303,7 @@ for center in centers2:
     print(center)
 
 #Assign cluster to the event in data
-prediction2= model_k5.transform(final_data2).select('Id','prediction', 'Age', 'AnnIncome', 'SpendScore').collect()
+prediction2= model_k5.transform(final_data2).select(*num_id,*num_cols, 'prediction').collect()
 
 #create dataframe 
 prediction2=spark.createDataFrame(prediction2)
